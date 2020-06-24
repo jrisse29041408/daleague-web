@@ -1,40 +1,18 @@
 import gql from 'graphql-tag'
-import Link from 'next/link'
 import { useQuery } from '@apollo/react-hooks'
 import { initializeApollo } from '../apollo/client'
+import { SignUpButton } from '../components/SignUpButton';
 
-const ViewerQuery = gql`
-  query ViewerQuery {
-    viewer {
-      id
-      name
-      status
-    }
-  }
-`
-
-const Index = () => {
-  const {
-    data: { viewer },
-  } = useQuery(ViewerQuery)
-
+function Index() {
   return (
     <div>
-      You're signed in as {viewer.name} and you're {viewer.status} goto{' '}
-      <Link href="/about">
-        <a>static</a>
-      </Link>{' '}
-      page.
+      <SignUpButton to="/signUp"/>
     </div>
   )
 }
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
-
-  await apolloClient.query({
-    query: ViewerQuery,
-  })
 
   return {
     props: {
