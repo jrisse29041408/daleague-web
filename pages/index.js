@@ -1,10 +1,11 @@
 import { client as apolloClient } from "../apollo/client";
-import { HomepageLayout } from "../components/Layout";
+import { IsntAuthLayout } from "../components/layout/IsntAuthLayout";
 
+// TODO: check authenticated to decide what home page to load
 const Home = () => {
 	return (
 		<div>
-			<HomepageLayout />
+			<IsntAuthLayout />
 		</div>
 	);
 };
