@@ -1,13 +1,13 @@
 import { client as apolloClient } from "../apollo/client";
-import { SignUpButton } from "../components/SignUpButton";
+import { HomepageLayout } from "../components/Layout";
 
-function Index() {
+const Home = () => {
 	return (
 		<div>
-			<SignUpButton to="/signUp" />
+			<HomepageLayout />
 		</div>
 	);
-}
+};
 
 export async function getStaticProps() {
 	return {
@@ -17,4 +17,4 @@ export async function getStaticProps() {
 	};
 }
 
-export default Index;
+export default Home;
